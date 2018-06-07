@@ -27,7 +27,7 @@ export function usrClickScreen(blockNumber) {
     if(reduxStore.getState().GameState !== 1){
         flipTheArray(arr,blockNumber);
         if(checkWinner(arr)){
-            return changeGameState(1);
+            return {type:ActionTypes.GameStateChanged,Config:{GameState:1,GameMap:arr}}
         }
     }
     return {type:ActionTypes.ScreenClicked,newGameMap:arr};

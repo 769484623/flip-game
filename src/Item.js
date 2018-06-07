@@ -27,8 +27,11 @@ export class Item extends Component{
         });
     }
     imgOnClickedHandler(){
-        reduxStore.dispatch(usrClickScreen(this.state.blockID));
-        reduxStore.dispatch(counterModify(reduxStore.getState().Counter + 1));
+        if(reduxStore.getState().GameState === 0)
+        {
+            reduxStore.dispatch(usrClickScreen(this.state.blockID));
+            reduxStore.dispatch(counterModify(reduxStore.getState().Counter + 1));
+        }
     }
     render(){
         return (
