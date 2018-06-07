@@ -41,6 +41,8 @@ function checkWinner(array) {
     return true;
 }
 function flipTheArray(array,blockNumber) {
+    array[blockNumber] = 1 - array[blockNumber];
+    
     if((blockNumber) % Math.sqrt(array.length) !== 0){
         array[blockNumber - 1] = 1 - array[blockNumber - 1];
     }
