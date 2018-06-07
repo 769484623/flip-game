@@ -1,10 +1,6 @@
 import * as ActionTypes from './ActionType'
 import {reduxStore} from './ReduxStore'
 
-export function counterModify(newCounter = 0) {
-    return {type:ActionTypes.CounterModify,newCounter};
-}
-
 export function changeGameState(state = 0) {//Restart the game
     let arr = [];
     if(state === 0){
@@ -30,7 +26,7 @@ export function usrClickScreen(blockNumber) {
             return {type:ActionTypes.GameStateChanged,Config:{GameState:1,GameMap:arr}}
         }
     }
-    return {type:ActionTypes.ScreenClicked,newGameMap:arr};
+    return {type:ActionTypes.ScreenClicked,Config:{GameMap:arr,Counter:reduxStore.getState().Counter + 1}};
 }
 function checkWinner(array) {
     for(let i = 0;i < array.length;i++){

@@ -1,6 +1,6 @@
 import React,{ Component } from 'react'
 import {reduxStore} from './dataStore/ReduxStore'
-import  {usrClickScreen,counterModify} from './dataStore/Actions'
+import  {usrClickScreen} from './dataStore/Actions'
 import picOn from './lightOn.jpg'
 import picOff from './lightOff.jpg'
 
@@ -30,7 +30,6 @@ export class Item extends Component{
         if(reduxStore.getState().GameState === 0)
         {
             reduxStore.dispatch(usrClickScreen(this.state.blockID));
-            reduxStore.dispatch(counterModify(reduxStore.getState().Counter + 1));
         }
     }
     render(){
